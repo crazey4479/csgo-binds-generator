@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* border: 1px red solid; */
+}
+
+body {
+    position: relative;
+    flex-direction: column;
+    background: url('../images/csgo.jpg') no-repeat fixed center;
+    background-size: cover;
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fira Code', sans-serif;
+}
+
+h1 {
+    font-family: 'Fira Code', sans-serif;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+h3 {
+    font-family: 'Fira Code', sans-serif;
+    border-bottom: 1px solid white;
+    width: 75%;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#wrapper {
+    position: relative;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid white;
+    height: 610px;
+    width: 600px;
+    padding: 50px 0 50px 0;
+    background-color: black;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.horizontal-box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* visibility: hidden; */
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.2s ease;
+}
+
+.key-press {
+    width: 100%;
+    font-family: 'Fira Code', sans-serif;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    height: 60px;
+    font-size: 1.7rem;
+    line-height: 2.2;
+    font-weight: bold;
+    text-align: center;
+}
+
+.checkbox-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    z-index: 1;
+}
+
+.vertical-box {
+    display: flex;
+    width: 55%;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 0 20px 0;
+}
+
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: black;
+    height: 100%;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+.vertical-box div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 15% 0 15%;
+    width: 100%;
+}
+
+.checkbox-list label {
+    width: 120px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.done-button {
+    position: relative;
+    margin: 20px 50px 0 50px;
+    background: none;
+    border: none;
+    height: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.1s ease;
+}
+
+.done-button::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px black solid;
+    opacity: 0.2;
+    transition: opacity 0.2s ease;
+}
+
+.done-button:hover::after {
+    opacity: 1;
+}
+
+.done-button:focus {
+    outline: none;
+}
+
+.done-button:active {
+    transform: scale(0.9);
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.list-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 75%;
+}
+
+.list-button {
+    font-family: 'Fira Code', sans-serif;
+    position: relative;
+    border: none;
+    background: none;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.list-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.list-button:hover::after {
+    opacity: 1;
+}
+
+.list-button:focus {
+    outline: none;
+}
+
+.list-button:active {
+    transform: scale(0.9);
+}
+
+.key,
+.clear-all {
+    font-family: 'Fira Code', sans-serif;
+    position: relative;
+    border: none;
+    background: none;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.key::after,
+.clear-all::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px white solid;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.key:hover::after,
+.clear-all:hover::after {
+    opacity: 1;
+}
+
+.key:focus,
+.clear-all:focus {
+    outline: none;
+}
+
+.key:active,
+.clear-all:active {
+    transform: scale(0.9);
+}
+
+.output {
+    font-family: 'Fira Code', sans-serif;
+    position: relative;
+    min-width: 300px;
+    max-width: 500px;
+    min-height: 25px;
+    line-height: 1.3;
+    text-align: center;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.output::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    border: solid white 1px;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+}
+
+.output:hover::after {
+    opacity: 1;
+}
+
+/* shopping cart */
+
+.shopping-cart {
+    font-family: 'Fira Code', sans-serif;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+    top: 0;
+    min-height: 610px;
+    width: 260px;
+    padding: 50px 0 50px 0;
+    opacity: 0;
+    right: -300px;
+    z-index: 0;
+    background-color: black;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateX(-450px);
+}
+
+.appear {
+    transform: translateX(0px);
+    opacity: 0.9;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.list li {
+    margin-bottom: 10px;
+}
+
+
+/* https://medium.com/mobile-app-developers/styling-checkbox-css-tips-e103c54ea1c7 */
+
+/* Styling Checkbox Starts */
+label {
+    display: block;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    clear: both;
+    box-sizing: border-box;
+}
+
+label input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: -20px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid black;
+}
+
+
+label input:checked ~ .checkbox-custom {
+    background-color: black;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid black;
+}
+
+
+label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+
+label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity:1;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* For Ripple Effect */
+label .checkbox-custom::before {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 10px;
+    width: 0px;
+    height: 0px;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+}
+
+label input:checked ~ .checkbox-custom::before {
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
+    opacity:0;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}

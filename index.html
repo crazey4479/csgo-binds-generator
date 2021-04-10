@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="scripts/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bindGenerator</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/loader-style.css">
+</head>
+<body>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <h1>CSGO Binds Generator</h1>
+
+    <div id="wrapper">
+        <div class="container">
+            <div class="horizontal-box hidden">
+                <div class="key-press">press a key</div>
+            </div>
+            <div class="checkbox-container hidden">
+                <div class="vertical-box">
+                    <div class="checkbox-list"></div>
+                    <button class="done-button">Save</button>
+                </div>
+            </div>
+            <h3>1. Choose items: </h3>
+            <div class="list-buttons">
+                <div><button class="list-button">Pistols</button></div>
+                <div><button class="list-button">Heavy</button></div>
+                <div><button class="list-button">SMGs</button></div>
+                <div><button class="list-button">Rifles</button></div>
+                <div><button class="list-button">Equipment</button></div>
+                <div><button class="list-button">Grenades</button></div>
+            </div>
+            <h3>2. Choose key:  </h3>
+            <button class="key">Click me</button>
+            <h3>3. Copy your binds:  </h3>
+            <span class="output">Your bind will appear here.</span>
+            <button class="clear-all">Clear</button>
+        </div>
+        <div class="shopping-cart">Shopping list:</div>
+
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
